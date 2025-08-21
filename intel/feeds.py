@@ -17,7 +17,6 @@ def pullMaliciousIndicators():
         "https://feodotracker.abuse.ch/downloads/ipblocklist.txt",  # This one is hit or miss. It updates (seemingly) in real time so it may not be consistent
         "https://raw.githubusercontent.com/montysecurity/C2-Tracker/main/data/all.txt",
         "https://rules.emergingthreats.net/blockrules/compromised-ips.txt",
-        "https://snort-org-site.s3.amazonaws.com/production/document_files/files/000/041/289/original/ip-filter.blf",
         "https://blocklist.greensnow.co/greensnow.txt",
         "https://threatview.io/Downloads/IP-High-Confidence-Feed.txt",
         # Potentially a list of TOR nodes

@@ -14,8 +14,10 @@ Utilizes Python and PostGres to query feeds and indicators for threat intel.
   - PG_PASSWORD = "user_password"  
 - Edit the volumes in ```compose.yml``` as needed and create directories as needed (whatever volumes you specify need to be created)  
 - OPTIONAL: Install some kind of PostGres client (e.g. pgAdmin)  
+> [!IMPORTANT] BEFORE YOU START THE CONTAINER 
+> GO INTO ```/mounted/postgres-data/``` AND REMOVE THE ```.gitkeep``` FILE OR THE CONTAINER WILL COMPLAIN AND FAIL TO START  
 - Run ```docker compose up -d``` to build and start the container  
-- If you have [UV](https://docs.astral.sh/uv/guides/install-python/) installed, run ```uv init``` and ```uv sync``` in whatever directory you're using.  
+- If you have [UV](https://docs.astral.sh/uv/guides/install-python/) installed, run ```uv sync``` in whatever directory you're using.  
 - If you don't have UV installed, you can create a virtual environment with ```python -m venv name_of_env_here``` and then activate your venv with ```source venv/bin/activate OR venv\Scripts\activate``` and run ```pip install -r requirements.txt```
 
 ### Usage:  
@@ -36,7 +38,6 @@ ip_feeds = [
         "https://feodotracker.abuse.ch/downloads/ipblocklist.txt",  # This one is hit or miss. It updates (seemingly) in real time so it may not be consistent
         "https://raw.githubusercontent.com/montysecurity/C2-Tracker/main/data/all.txt",
         "https://rules.emergingthreats.net/blockrules/compromised-ips.txt",
-        "https://snort-org-site.s3.amazonaws.com/production/document_files/files/000/041/289/original/ip-filter.blf",
         "https://blocklist.greensnow.co/greensnow.txt",
         "https://threatview.io/Downloads/IP-High-Confidence-Feed.txt",
         # Potentially a list of TOR nodes

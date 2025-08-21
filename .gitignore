@@ -1,4 +1,12 @@
 # ---> Python
+#############
+#  SPECIFIC #
+#############
+# Don't really want the fill prod DB in the repo. Also don't want my queries scratchpad there
+mounted/postgres-data/*
+justsomequeries.txt
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

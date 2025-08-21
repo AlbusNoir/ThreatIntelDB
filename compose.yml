@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:latest
+    # Uncomment if you intend to have the container always up
+    #restart: unless_stopped
+    environment:
+    # pulled in from .env file. If you don't have one, make one.
+    # don't try to get too clever with your PG password. Certain symbols will break auth
+      POSTGRES_DB: ${PG_DB}
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      POSTGRES_ROOT_PASSWORD: ${PG_ROOT_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+    # local:container - mounting the actual sql file and the data directory. TL;DR doing this so that the db is persistent and technically portable
+    # if using docker desktop on windows, make sure to share the drive with docker first. Settings > resources > file sharing
+      - ./mounted/docker-entrypoint-initdb.d/init.sql:/docker-entrypoint-initdb.d/init.sql:ro # https://hub.docker.com/_/postgres#initialization-scripts
+      - ./mounted/postgres-data:/var/lib/postgresql/data
